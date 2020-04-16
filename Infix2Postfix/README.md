@@ -6,7 +6,7 @@ The folder contains the implementation of Infix2Postfix algorithm. Implementatio
 
 ## Following is the List of Implementations
 
-* [C++ with Stack](c++/Infix2Postfix.h)
+* [C++ with Stack](C++/Infix2Postfix.h)
 
 ## Helper Functions
 
