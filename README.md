@@ -13,4 +13,4 @@ See also the list of [contributors](https://github.com/g31s/pdocker/contributors
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for detailsgit 
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for detailsgit 
