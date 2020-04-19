@@ -27,7 +27,6 @@ class Infix2Postfix {
   	int GetOperatorWeight(char op);
 
   	void IterateString();
-  	void PopStackUntilLowerPresOrEqualPres(char nextop);
   	void PopStackUntilLeftParenthesis();
   	void PopStackUntilEmpty();
   	
@@ -86,22 +85,13 @@ void Infix2Postfix::Debug(bool value){
 
 // ------------- END ---------------
 
-// I Empty the stack till it's empty
+// H Empty the stack till it's empty
 void Infix2Postfix::PopStackUntilEmpty(){
 	// Add what is remaining on stack to postfix
 	while(!opstack.empty()){ 
     	postfix += opstack.top();
    		opstack.pop();
     }
-}
-
-
-// H Empty the stack till next character has higher precedence
-void Infix2Postfix::PopStackUntilLowerPresOrEqualPres(char nextop){
-	while (!IsPresHigh(nextop,opstack.top())) { // Empty stack till it's empty
-        postfix += opstack.top(); 
-        opstack.pop();
-	}
 }
 
 // G Set the Weight for each operator
