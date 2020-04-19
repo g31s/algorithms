@@ -98,12 +98,10 @@ void Infix2Postfix::PopStackUntilEmpty(){
 
 // H Empty the stack till next character has higher precedence
 void Infix2Postfix::PopStackUntilLowerPresOrEqualPres(char nextop){
-
 	while (!IsPresHigh(nextop,opstack.top())) { // Empty stack till it's empty
         postfix += opstack.top(); 
         opstack.pop();
 	}
-
 }
 
 // G Set the Weight for each operator
