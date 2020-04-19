@@ -141,7 +141,7 @@ bool Infix2Postfix::IsOperator(char C) {
 	return (C == '+' || C == '-' || C == '*' || C == '/' ) ? true :false;
 }
 
-//C Iterate through each character in the string
+// C Iterate through each character in the string
 void Infix2Postfix::IterateString() {
 	// for loop to go through the each character in the string 
 	for (int i = 0; i < input_infix.length(); ++i){ 
