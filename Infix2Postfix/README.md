@@ -25,6 +25,13 @@ int main() {
 }
 ```
 
+## Running Tests:
+```
+g++ Tests.cpp
+./a.out
+```
+All Test should pass.
+
 ## Authors
 
 * **g31s** - *Initial work* - [g31s](https://github.com/g31s)

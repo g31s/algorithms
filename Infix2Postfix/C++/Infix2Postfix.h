@@ -27,13 +27,12 @@ class Infix2Postfix {
   	int GetOperatorWeight(char op);
 
   	void IterateString();
-  	void PopStackUntilHigherPres(char nextop);
+  	void PopStackUntilLowerPresOrEqualPres(char nextop);
   	void PopStackUntilLeftParenthesis();
   	void PopStackUntilEmpty();
-  	void EqualPrecedence(char nextchar);
   	
   	bool IsOperator(char C);
-  	bool IsPresHigh(char nextchar,char stacktop);
+  	bool IsPresHigh(char stacktop,char nextchar);
   
   // Following methods and parameters are public.
   public:
@@ -87,7 +86,7 @@ void Infix2Postfix::Debug(bool value){
 
 // ------------- END ---------------
 
-// J Empty the stack till it's empty
+// I Empty the stack till it's empty
 void Infix2Postfix::PopStackUntilEmpty(){
 	// Add what is remaining on stack to postfix
 	while(!opstack.empty()){ 
@@ -96,19 +95,15 @@ void Infix2Postfix::PopStackUntilEmpty(){
     }
 }
 
-// I If the precedence is equal add the top of stack to postfix. Pop ans push new char
-void Infix2Postfix::EqualPrecedence(char nextchar){
-	postfix += opstack.top();
-	opstack.pop();
-}
 
 // H Empty the stack till next character has higher precedence
-void Infix2Postfix::PopStackUntilHigherPres(char nextop){
+void Infix2Postfix::PopStackUntilLowerPresOrEqualPres(char nextop){
 
 	while (!IsPresHigh(nextop,opstack.top())) { // Empty stack till it's empty
         postfix += opstack.top(); 
         opstack.pop();
 	}
+
 }
 
 // G Set the Weight for each operator
@@ -132,15 +127,15 @@ int Infix2Postfix::GetOperatorWeight(char op)
 }
 
 // F Check the precedence between top of stack and incoming character
-bool Infix2Postfix::IsPresHigh(char nextchar,char stacktop){
+bool Infix2Postfix::IsPresHigh(char stacktop,char nextchar){
 	// Get the operator weight and assing the value to new variables
 	int nextchar_weight = GetOperatorWeight(nextchar);
 	int stacktop_weight = GetOperatorWeight(stacktop);
 	if (nextchar_weight == stacktop_weight) {
-		EqualPrecedence(nextchar);
+		// Assuming it all will be left association. if right association false return can be sent.
 		return true;
 	}
-	return ((nextchar_weight > stacktop_weight) ? true : false);
+	return ((stacktop_weight > nextchar_weight ) ? true : false);
 
 }
 
@@ -163,11 +158,11 @@ void Infix2Postfix::IterateString() {
 	// for loop to go through the each character in the string 
 	for (int i = 0; i < input_infix.length(); ++i){ 
 		if (IsOperator(input_infix[i])){ // Check if the character is operator 
-			if (opstack.empty() || opstack.top() == '(' || IsPresHigh(input_infix[i],opstack.top()) ){ // Step 2 and 5
-				opstack.push(input_infix[i]);
-			} else if (!IsPresHigh(input_infix[i],opstack.top())){ // Step 7
-				PopStackUntilHigherPres(input_infix[i]);
+			while(!opstack.empty() && (opstack.top() != '(')  && IsPresHigh(opstack.top(),input_infix[i]) ) { // Step 2 and 5
+				postfix += opstack.top();
+				opstack.pop();
 			}
+			opstack.push(input_infix[i]);
 		} else if (input_infix[i] == '(') { // Step 3
 			opstack.push(input_infix[i]);
 		} else if (input_infix[i] == ')'){ // Step 4
