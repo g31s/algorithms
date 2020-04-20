@@ -1,4 +1,4 @@
-// Following code convert the Infix to Postfix notation. Following steps discribe the Algorithom
+// Following code convert the Infix to Postfix notation. Following steps discribe the Algorithms
 // Copied From: http://csis.pace.edu/~wolf/CS122/infix-postfix.htm
 // 1. Print operands as they arrive.
 // 2. If the stack is empty or contains a left parenthesis on top, push the incoming operator onto the stack.
@@ -14,10 +14,10 @@
 #include <stack>
 using namespace std;
 
-// Creating a calss.
+// Creating a class.
 class Infix2Postfix { 
 
-  // Following methods are private for this class. All the steps are done privatly.
+  // Following methods are private for this class.
   private:
   	// Private variables
   	// Stack to store operators
@@ -127,7 +127,7 @@ bool Infix2Postfix::IsPresHigh(char stacktop,char nextchar){
 
 }
 
-// E Pop the stack till Left Parenthesis is reachd. 
+// E Pop the stack till Left Parenthesis is reached. 
 void Infix2Postfix::PopStackUntilLeftParenthesis(){
 	while(opstack.top() != '('){
 		postfix += opstack.top();
@@ -136,7 +136,7 @@ void Infix2Postfix::PopStackUntilLeftParenthesis(){
 	opstack.pop(); // pop the left parenthesis in the end
 }
 
-// D Check if the character is operator or not.
+// D Check if the character is an operator or not.
 bool Infix2Postfix::IsOperator(char C) {
 	return (C == '+' || C == '-' || C == '*' || C == '/' ) ? true :false;
 }
@@ -145,7 +145,7 @@ bool Infix2Postfix::IsOperator(char C) {
 void Infix2Postfix::IterateString() {
 	// for loop to go through the each character in the string 
 	for (int i = 0; i < input_infix.length(); ++i){ 
-		if (IsOperator(input_infix[i])){ // Check if the character is operator 
+		if (IsOperator(input_infix[i])){ // Check if the character is an operator 
 			while(!opstack.empty() && (opstack.top() != '(')  && IsPresHigh(opstack.top(),input_infix[i]) ) { // Step 2 and 5
 				postfix += opstack.top();
 				opstack.pop();

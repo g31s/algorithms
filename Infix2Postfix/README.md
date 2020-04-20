@@ -2,7 +2,7 @@
 
 ## Details
 
-The folder contains the implementation of Infix2Postfix algorithm. Implementations are written in a way that, it's easy to understand.
+The folder contains the implementation of Infix2Postfix algorithms. Implementations are written in a way that, it's easy to understand.
 
 ## Following is the List of Implementations
 
@@ -10,7 +10,14 @@ The folder contains the implementation of Infix2Postfix algorithm. Implementatio
 
 ## Helper Functions
 
-Most implementations contains Helper functions. Function are added to understand what is happening at each step. These function are not requried to run the program and can be delete. 
+Most implementation contains Helper functions. Function are added to understand what is happening at each step. These function are not requried to run the program and can be delete. 
+
+## Running Tests:
+```
+g++ Tests.cpp
+./a.out
+```
+All Test should pass.
 
 ## Example:
 ```
@@ -25,13 +32,6 @@ int main() {
 }
 ```
 
-## Running Tests:
-```
-g++ Tests.cpp
-./a.out
-```
-All Test should pass.
-
 ## Authors
 
 * **g31s** - *Initial work* - [g31s](https://github.com/g31s)
@@ -40,4 +40,4 @@ See also the list of [contributors](https://github.com/g31s/algorithms/contribut
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for detailsgit 
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/g31s/algorithms/LICENSE) file for detailsgit 

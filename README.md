@@ -1,5 +1,5 @@
 # Algorithms
-This Repo Contains Comman Data Structures Algorithms. 
+This Repo Contains Common Data Structure Algorithms. 
 
 ## Following is the List of Algorithms Covered so Far:
 
